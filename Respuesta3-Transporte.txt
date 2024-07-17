@@ -1,0 +1,68 @@
+Ingrese la cantidad de ciudades de origen: 3
+Ingrese la cantidad de ciudades de destino: 4
+Ingrese el nombre de la ciudad de origen 1: A1
+Ingrese el nombre de la ciudad de origen 2: A2
+Ingrese el nombre de la ciudad de origen 3: A3
+Ingrese el nombre de la ciudad de destino 1: 1
+Ingrese el nombre de la ciudad de destino 2: 2
+Ingrese el nombre de la ciudad de destino 3: 3
+Ingrese el nombre de la ciudad de destino 4: 4
+Ingrese la oferta de la ciudad A1: 1500
+Ingrese la oferta de la ciudad A2: 1500
+Ingrese la oferta de la ciudad A3: 1500
+Ingrese la demanda de la ciudad 1: 1000
+Ingrese la demanda de la ciudad 2: 1200
+Ingrese la demanda de la ciudad 3: 1500
+Ingrese la demanda de la ciudad 4: 1000
+Ingrese el costo de envío de A1 a 1: 80
+Ingrese el costo de envío de A1 a 2: 100
+Ingrese el costo de envío de A1 a 3: 85
+Ingrese el costo de envío de A1 a 4: 90
+Ingrese el costo de envío de A2 a 1: 95
+Ingrese el costo de envío de A2 a 2: 85
+Ingrese el costo de envío de A2 a 3: 80
+Ingrese el costo de envío de A2 a 4: 100
+Ingrese el costo de envío de A3 a 1: 90
+Ingrese el costo de envío de A3 a 2: 80
+Ingrese el costo de envío de A3 a 3: 95
+Ingrese el costo de envío de A3 a 4: 90
+Welcome to the CBC MILP Solver 
+Version: 2.10.3 
+Build Date: Dec 15 2019 
+
+command line - /home/jvaldes/.local/lib/python3.10/site-packages/pulp/solverdir/cbc/linux/64/cbc /tmp/7d1ee4eca8ac480299cd082800333417-pulp.mps -timeMode elapsed -branch -printingOptions all -solution /tmp/7d1ee4eca8ac480299cd082800333417-pulp.sol (default strategy 1)
+At line 2 NAME          MODEL
+At line 3 ROWS
+At line 12 COLUMNS
+At line 49 RHS
+At line 57 BOUNDS
+At line 58 ENDATA
+Problem MODEL has 7 rows, 12 columns and 24 elements
+Coin0008I MODEL read with 0 errors
+Option for timeMode changed from cpu to elapsed
+Presolve 7 (0) rows, 12 (0) columns and 24 (0) elements
+0  Obj 0 Primal inf 4700 (4)
+6  Obj 387000 Primal inf 200 (1)
+Primal infeasible - objective value 387000
+PrimalInfeasible objective 387000 - 6 iterations time 0.002
+
+Result - Linear relaxation infeasible
+
+Enumerated nodes:           0
+Total iterations:           0
+Time (CPU seconds):         0.00
+Time (Wallclock Seconds):   0.00
+
+Option for printingOptions changed from normal to all
+Total time (CPU seconds):       0.00   (Wallclock seconds):       0.00
+
+Status: Infeasible 
+
+Cantidad_de_Envio_A1_1 = 1000.0
+Cantidad_de_Envio_A1_4 = 500.0
+Cantidad_de_Envio_A2_2 = 200.0
+Cantidad_de_Envio_A2_3 = 1500.0
+Cantidad_de_Envio_A3_2 = 1000.0
+Cantidad_de_Envio_A3_4 = 500.0
+
+El costo mínimo es: 387000.0  
