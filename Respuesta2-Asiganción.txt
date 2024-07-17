@@ -1,0 +1,21 @@
+Ingrese la cantidad de filas de la matriz de costos: 4
+Ingrese la cantidad de columnas de la matriz de costos: 4
+Ingrese el costo de la fila 1 y la columna 1: 7
+Ingrese el costo de la fila 1 y la columna 2: 2
+Ingrese el costo de la fila 1 y la columna 3: 9
+Ingrese el costo de la fila 1 y la columna 4: 4
+Ingrese el costo de la fila 2 y la columna 1: 8
+Ingrese el costo de la fila 2 y la columna 2: 1
+Ingrese el costo de la fila 2 y la columna 3: 7
+Ingrese el costo de la fila 2 y la columna 4: 6
+Ingrese el costo de la fila 3 y la columna 1: 5
+Ingrese el costo de la fila 3 y la columna 2: 4
+Ingrese el costo de la fila 3 y la columna 3: 2
+Ingrese el costo de la fila 3 y la columna 4: 1
+Ingrese el costo de la fila 4 y la columna 1: 6
+Ingrese el costo de la fila 4 y la columna 2: 7
+Ingrese el costo de la fila 4 y la columna 3: 9
+Ingrese el costo de la fila 4 y la columna 4: 5
+
+Asignación óptima: [(0, 3), (1, 1), (2, 2), (3, 0)]
+Costo total: 13 
