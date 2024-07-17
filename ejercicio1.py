@@ -1,3 +1,6 @@
+    # Juan Valdes y Jennire Vetri
+
+
 import pandas as np
 from pulp import *
 from pandas import DataFrame

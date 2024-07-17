@@ -1,3 +1,6 @@
+    # Juan Valdes y Jennire Vetri
+
+
 from pulp import LpMinimize, LpProblem, LpStatus, LpVariable, lpSum, value
 
 # Definición de datos
