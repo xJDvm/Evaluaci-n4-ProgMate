@@ -1,34 +1,50 @@
-import pandas as np
-from pulp import *
-from pandas import DataFrame
+from pulp import LpMinimize, LpProblem, LpStatus, LpVariable, lpSum, value
 
-### Ciudades
-origen = ['A','B','C']
-destino = ['1','2','3','4']
+# Definición de datos
+origen = ['A', 'B', 'C']
+destino = ['1', '2', '3', '4']
 
-oferta = {'A': 500, 'B' : 700, 'C':800}
-demanda = {'1': 400, '2' : 900, '3':200, '4':500}
+oferta = {'A': 500, 'B': 700, 'C': 800}
+demanda = {'1': 400, '2': 900, '3': 200, '4': 500}
 
-costo_envio ={'A':{'1': 12, '2' : 13, '3': 4, '4':6},
-             'B':{'1': 6, '2' : 4, '3': 10, '4':11},
-             'C':{'1': 10, '2' : 9, '3': 12, '4':4}}
+costo_envio = {
+    'A': {'1': 12, '2': 13, '3': 4, '4': 6},
+    'B': {'1': 6, '2': 4, '3': 10, '4': 11},
+    'C': {'1': 10, '2': 9, '3': 12, '4': 4}
+}
 
-### Declaramos la función objetivo... nota que buscamos minimizar el costo(LpMinimize)
+# Crear el problema de optimización
 prob = LpProblem('Transporte', LpMinimize)
 
-rutas = [(i,j) for i in origen for j in destino]
-cantidad = LpVariable.dicts('Cantidad de Envio',(origen,destino),0)
-prob += lpSum(cantidad[i][j]*costo_envio[i][j] for (i,j) in rutas)
-for j in destino:
-    prob += lpSum(cantidad[i][j] for i in origen) == demanda[j]
-for i in origen:
-    prob += lpSum(cantidad[i][j] for j in destino) <= oferta[i]
-### Resolvemos e imprimimos el Status, si es Optimo, el problema tiene solución.
-prob.solve()
-print("Status:", LpStatus[prob.status])
+# Definir rutas y variables de decisión
+rutas = [(i, j) for i in origen for j in destino]
+cantidad = LpVariable.dicts('Cantidad_de_Envio', (origen, destino), 0)
 
-### Imprimimos la solución
-for v in prob.variables():
-    if v.varValue > 0:
-        print(v.name, "=", v.varValue)
-print('El costo mínimo es:', value(prob.objective))
+# Definir la función objetivo
+prob += lpSum(cantidad[i][j] * costo_envio[i][j] for (i, j) in rutas), "Costo_Total"
+
+# Agregar restricciones de demanda
+for j in destino:
+    prob += lpSum(cantidad[i][j] for i in origen) == demanda[j], f"Demanda_{j}"
+
+# Agregar restricciones de oferta
+for i in origen:
+    prob += lpSum(cantidad[i][j] for j in destino) <= oferta[i], f"Oferta_{i}"
+
+# Resolver el problema
+prob.solve()
+
+# Imprimir el estado del problema
+print("Estado:", LpStatus[prob.status])
+
+# Imprimir la solución
+if LpStatus[prob.status] == 'Optimal':
+    for i in origen:
+        for j in destino:
+            if cantidad[i][j].varValue > 0:
+                print(f"Enviar {cantidad[i][j].varValue} unidades desde {i} a {j}")
+
+    # Imprimir el costo total mínimo
+    print('El costo mínimo es:', value(prob.objective))
+else:
+    print("No se encontró una solución óptima.")
