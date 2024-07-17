@@ -1,4 +1,4 @@
-    # Juan Valdes y Jen2nire Vetri
+    # Juan Valdes, Jennire Vetri, Jose Parra
 
 
 import pandas as np

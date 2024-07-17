@@ -1,4 +1,4 @@
-    # Juan Valdes y Jennire Vetri
+    # Juan Valdes, Jennire Vetri, Jose Parra
 
 
 from pulp import LpMinimize, LpProblem, LpStatus, LpVariable, lpSum, value
